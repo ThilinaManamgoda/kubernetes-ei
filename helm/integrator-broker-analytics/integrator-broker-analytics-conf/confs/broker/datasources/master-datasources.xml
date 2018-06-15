@@ -68,7 +68,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://integrator-broker-analytics-rdbms-service:3306/WSO2EI_INTEGRATOR_CONFIG_GOV_DB?autoReconnect=true&amp;useSSL=false</url>
+                    <url>jdbc:mysql://wso2ei-integrator-broker-analytics-rdbms-service-mysql:3306/WSO2EI_INTEGRATOR_CONFIG_GOV_DB?autoReconnect=true&amp;useSSL=false</url>
                     <username>wso2carbon</username>
                     <password>wso2carbon</password>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>
@@ -88,7 +88,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://integrator-broker-analytics-rdbms-service:3306/WSO2EI_USER_DB?autoReconnect=true&amp;useSSL=false</url>
+                    <url>jdbc:mysql://wso2ei-integrator-broker-analytics-rdbms-service-mysql:3306/WSO2EI_USER_DB?autoReconnect=true&amp;useSSL=false</url>
                     <username>wso2carbon</username>
                     <password>wso2carbon</password>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>
@@ -134,7 +134,7 @@
              <definition type="RDBMS">
                  <configuration>
                      <driverClassName>com.mysql.jdbc.Driver</driverClassName>
-                     <url>jdbc:mysql://integrator-broker-analytics-rdbms-service:3306/WSO2EI_MB_DB?autoReconnect=true&amp;useSSL=false</url>
+                     <url>jdbc:mysql://wso2ei-integrator-broker-analytics-rdbms-service-mysql:3306/WSO2EI_MB_DB?autoReconnect=true&amp;useSSL=false</url>
                      <username>wso2carbon</username>
                      <password>wso2carbon</password>
                      <maxActive>50</maxActive>
