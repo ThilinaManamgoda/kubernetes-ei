@@ -13,13 +13,13 @@ steps provided in the following quick start guide.<br><br>
 * Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). This can
  be easily done via 
   ```
-  helm install stable/nginx-ingress --name nginx-wso2integrator-analytics --set rbac.create=true
+  helm install stable/nginx-ingress --name nginx-wso2integrator-with-analytics --set rbac.create=true
   ```
 ## Quick Start Guide
 >In the context of this document, <br>
 >* `KUBERNETES_HOME` will refer to a local copy of the [`wso2/kubernetes-ei`](https://github.com/wso2/kubernetes-ei/)
 Git repository. <br>
->* `HELM_HOME` will refer to `<KUBERNETES_HOME>/helm/integrator-analytics`. <br>
+>* `HELM_HOME` will refer to `<KUBERNETES_HOME>/helm/integrator-with-analytics`. <br>
 
 ##### 1. Checkout Kubernetes Resources for WSO2 Enterprise Integrator Git repository:
 
@@ -29,13 +29,13 @@ git clone https://github.com/wso2/kubernetes-ei.git
 
 ##### 2. Provide configurations:
 
-1. The default product configurations are available at `<HELM_HOME>/integrator-analytics-conf/confs` folder. Change the 
+1. The default product configurations are available at `<HELM_HOME>/integrator-with-analytics-conf/confs` folder. Change the 
 configurations as necessary.
 
-2. Open the `<HELM_HOME>/integrator-analytics-conf/values.yaml` and provide the following values.
+2. Open the `<HELM_HOME>/integrator-with-analytics-conf/values.yaml` and provide the following values.
 
-    `username`: Username of your Free Trial Subscription<br>
-    `password`: Password of your Free Trial Subscription<br>
+    `username`: Username of your WSO2 Subscription<br>
+    `password`: Password of your WSO2 Subscription<br>
     `email`: Docker email<br>
     `namespace`: Namespace<br>
     `svcaccount`: Service Account<br>
@@ -45,7 +45,7 @@ configurations as necessary.
     `analytics1DataLocationPath`: NFS volume for Indexed data for Analytics node 1(<DAS_HOME>/repository/data)<br> 
     `analytics2DataLocationPath`: NFS volume for Indexed data for Analytics node 2(<DAS_HOME>/repository/data)
     
-3. Open the `<HELM_HOME>/integrator-analytics-deployment/values.yaml` and provide the following values.
+3. Open the `<HELM_HOME>/integrator-with-analytics-deployment/values.yaml` and provide the following values.
 
     `namespace`: Namespace<br>
     `svcaccount`: Service Account
@@ -53,14 +53,14 @@ configurations as necessary.
 ##### 3. Deploy the configurations:
 
 ```
-helm install --name <RELEASE_NAME> <HELM_HOME>/integrator-analytics-conf
+helm install --name <RELEASE_NAME> <HELM_HOME>/integrator-with-analytics-conf
 ```
 
 ##### 4. Deploy MySql:
 If there is an external product database(s), add those configurations as stated at `step 2.1`. Otherwise, run the below
  command to create the product database. 
 ```
-helm install --name wso2ei-integrator-analytics-rdbms-service -f <HELM_HOME>/mysql/values.yaml 
+helm install --name wso2ei-integrator-with-analytics-rdbms-service -f <HELM_HOME>/mysql/values.yaml 
 stable/mysql --namespace <NAMESPACE>
 ```
 `NAMESPACE` should be same as `step 2.2`.
@@ -68,7 +68,7 @@ stable/mysql --namespace <NAMESPACE>
 ##### 5. Deploy WSO2 Enterprise Integrator with Analytics:
 
 ```
-helm install --name <RELEASE_NAME> <HELM_HOME>/integrator-analytics-deployment
+helm install --name <RELEASE_NAME> <HELM_HOME>/integrator-with-analytics-deployment
 ```
 
 ##### 6. Access Management Console:
@@ -80,7 +80,7 @@ Default deployment will expose three publicly accessible hosts, namely:<br>
 
 To access the console in a test environment,
 
-1. Obtain the external IP (`EXTERNAL-IP`) of the Ingress resources by listing down the Kubernetes Ingresses (using `kubectl get ing`).
+1. Obtain the external IP (`EXTERNAL-IP`) of the Ingress resources by listing down the Kubernetes Ingresses (using `kubectl get ing -n <NAMESPACE>`).
 
 e.g.
 
