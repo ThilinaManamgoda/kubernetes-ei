@@ -1,14 +1,13 @@
-<datasources-configuration xmlns:svns="http://org.wso2.securevault/configuration">
-  
+<datasources-configuration>
+
     <providers>
         <provider>org.wso2.carbon.ndatasource.rdbms.RDBMSDataSourceReader</provider>
     </providers>
   
     <datasources>
-      
         <datasource>
             <name>WSO2_CARBON_DB</name>
-            <description>The datasource used for registry and user manager</description>
+            <description>The datasource used for local registry of wso2 ei-integrator</description>
             <jndiConfig>
                 <name>jdbc/WSO2CarbonDB</name>
             </jndiConfig>
@@ -35,7 +34,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://wso2ei-integrator-broker-analytics-rdbms-service-mysql:3306/WSO2EI_INTEGRATOR_CONFIG_GOV_DB?autoReconnect=true&amp;useSSL=false</url>
+                    <url>jdbc:mysql://wso2ei-integrator-broker-with-analytics-rdbms-service-mysql:3306/WSO2EI_INTEGRATOR_CONFIG_GOV_DB?autoReconnect=true&amp;useSSL=false</url>
                     <username>wso2carbon</username>
                     <password>wso2carbon</password>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>
@@ -55,7 +54,7 @@
             </jndiConfig>
             <definition type="RDBMS">
                 <configuration>
-                    <url>jdbc:mysql://wso2ei-integrator-broker-analytics-rdbms-service-mysql:3306/WSO2EI_USER_DB?autoReconnect=true&amp;useSSL=false</url>
+                    <url>jdbc:mysql://wso2ei-integrator-broker-with-analytics-rdbms-service-mysql:3306/WSO2EI_USER_DB?autoReconnect=true&amp;useSSL=false</url>
                     <username>wso2carbon</username>
                     <password>wso2carbon</password>
                     <driverClassName>com.mysql.jdbc.Driver</driverClassName>
@@ -67,7 +66,6 @@
                 </configuration>
             </definition>
         </datasource>
-
         <!-- For an explanation of the properties, see: http://people.apache.org/~fhanik/jdbc-pool/jdbc-pool.html -->
         <!--datasource>
             <name>SAMPLE_DATA_SOURCE</name>
@@ -83,7 +81,9 @@
 
                     <defaultAutoCommit></defaultAutoCommit>
                     <defaultReadOnly></defaultReadOnly>
-                    <defaultTransactionIsolation>NONE|READ_COMMITTED|READ_UNCOMMITTED|REPEATABLE_READ|SERIALIZABLE</defaultTransactionIsolation>
+                    <defaultTransactionIsolation>
+                        NONE|READ_COMMITTED|READ_UNCOMMITTED|REPEATABLE_READ|SERIALIZABLE
+                    </defaultTransactionIsolation>
                     <defaultCatalog></defaultCatalog>
                     <username></username>
                     <password svns:secretAlias="WSO2.DB.Password"></password>
@@ -102,7 +102,5 @@
                 </configuration>
             </definition>
         </datasource-->
-
     </datasources>
-
 </datasources-configuration>
