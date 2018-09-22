@@ -23,3 +23,6 @@ spec:
     requests:
       storage: 1Gi
   storageClassName: ""
+  selector:
+      matchLabels:
+        purpose: integrator-shared-deployment
